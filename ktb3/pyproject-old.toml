@@ -1,0 +1,77 @@
+[project]
+name = "ktb3"
+version = "0.1.0"
+description = "KTB3 using crewAI"
+authors = [{ name = "Your Name", email = "you@example.com" }]
+requires-python = ">=3.10,<=3.13"
+dependencies = [
+    "crewai[tools]>=0.30.11,<0.31.0"
+]
+
+[project.scripts]
+ktb3 = "ktb3.main:run"
+run_crew = "ktb3.main:run"
+train = "ktb3.main:train"
+replay = "ktb3.main:replay"
+test = "ktb3.main:test"
+
+# Build system configuration using Poetry
+# Poetry-core handles the packaging and distribution of the project
+[build-system]
+requires = ["poetry-core>=1.1.0"]  # Updated to more recent stable version
+build-backend = "poetry.core.masonry.api"
+
+
+
+[tool.crewai]
+type = "crew"
+
+[tool.poetry]
+name = "agentic-marketplace"
+version = "0.1.0"
+description = "CrewAI-powered Agentic Marketplace for CAD/PLM automation in product development"
+authors = ["Your Name <your.email@example.com>"]  # 35+ years engineering veteran
+license = "MIT"
+readme = "README.md"
+repository = "https://github.com/yourusername/agentic-marketplace"  # Optional: Your repo
+keywords = ["crewai", "plm", "cad", "solidworks", "aras", "docker"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Build Tools",
+    "Programming Language :: Python :: 3.12",
+]
+
+[tool.poetry.dependencies]
+python = ">=3.10,<=3.13"
+crewai = "^0.30.11"  # Core for agents/tasks; includes YAML support
+crewai-tools = "^0.1.7"  # For BaseTool extensions like BOMExtractorTool
+pyyaml = "^6.0.1"  # Safe YAML loading
+langchain-openai = "^0.1.7"  # LLM integration; requires OPENAI_API_KEY env
+langchain-community = "^0.2.1"  # For additional chains if needed later
+
+# Optional: For future CAD/PLM integrations (add as needed)
+# solidworks-api = {git = "https://github.com/example/solidworks-python-api"}  # Custom if available
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0.0"  # Unit tests for agents/tasks
+black = "^24.4.2"  # Code formatting
+pytest-cov = "^5.0.0"  # Coverage reports
+docker = "^7.0.0"  # For local Docker testing scripts
+
+[tool.poetry.scripts]
+run = "agentic_marketplace.cli:main"  # Entry point; create cli.py to import run_crew()
+
+[tool.black]
+line-length = 88
+target-version = ['py312']
+
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+addopts = "-ra --strict-markers"
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]

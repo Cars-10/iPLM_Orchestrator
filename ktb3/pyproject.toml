@@ -1,0 +1,29 @@
+[project]
+name = "agentic-marketplace"
+version = "0.1.0"
+description = "CrewAI-powered Agentic Marketplace for CAD/PLM automation in product development"
+authors = [
+    { name = "Your Name", email = "your.email@example.com" },
+]
+requires-python = ">=3.10,<=3.13"
+dependencies = [
+    "crewai>=0.30.11",
+    "crewai-tools>=0.1.7",
+    "pyyaml>=6.0.1",
+    "langchain-anthropic>=0.1.0",
+    "langchain-community>=0.2.1",
+]
+
+[project.scripts]
+run = "ktb3.main:run"
+run_crew = "ktb3.main:run"
+
+[build-system]
+requires = [
+    "hatchling",
+]
+build-backend = "hatchling.build"
+
+# Hatchling build configuration for crewai compatibility
+[tool.hatch.build.targets.wheel]
+packages = ["src/ktb3"]

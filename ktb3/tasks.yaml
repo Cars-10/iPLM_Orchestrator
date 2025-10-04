@@ -1,0 +1,15 @@
+research_task:
+  description: |
+    Analyze the product development project requirements and create a comprehensive workflow plan.
+    Identify all stakeholders, required CAD/PLM integrations, and potential monetization opportunities.
+  expected_output: |
+    A detailed project analysis including workflow steps, integration points, and monetization strategy.
+
+reporting_task:
+  description: |
+    Generate comprehensive reports on project progress, agent interactions, and ROI analysis.
+    Create documentation for stakeholders and prepare monetization summaries.
+  expected_output: |
+    Complete project report with progress tracking, financial analysis, and stakeholder recommendations.
+  output_file: report.md
+
